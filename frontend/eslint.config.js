@@ -16,11 +16,20 @@ export default [
         sourceType: 'module',
       },
     },
+    settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx'],
+      },
+    },
+  },
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
     rules: {
+      'import/no-unresolved': 'error',
+      'import/no-named-as-default': 'warn',
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
