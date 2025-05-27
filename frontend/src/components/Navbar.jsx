@@ -16,11 +16,13 @@ import MailIcon from '@mui/icons-material/Mail';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import {Link, useLocation} from 'react-router-dom';
+
 const drawerWidth = 240;
 
 export default function Navbar(props) {
   const {content} = props
   const location = useLocation();
+  const path = location.pathname
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -44,7 +46,7 @@ export default function Navbar(props) {
           <List>
             
               <ListItem key={1} disablePadding>
-                <ListItemButton>
+                <ListItemButton component={Link} to="/home" selected={path === '/home'}>
                   <ListItemIcon>
                     <HomeIcon/>
                   </ListItemIcon>
@@ -52,7 +54,7 @@ export default function Navbar(props) {
                 </ListItemButton>
               </ListItem>
               <ListItem key={2} disablePadding>
-                <ListItemButton>
+                <ListItemButton component={Link} to="/about" selected={path === '/about'}>
                   <ListItemIcon>
                     <InfoIcon />
                   </ListItemIcon>
